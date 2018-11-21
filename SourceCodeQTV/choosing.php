@@ -7,6 +7,30 @@ echo '<div class="title"><center>Chức năng Quản Trị Viên</center></div><
 if($thonline == 1)
 {
     echo '<center><img src="qtv.png" width="30%" height="25%"></center>';
+    echo '<center>';
+        if (isset($_GET['null']))
+        { echo'<font color="red">Không được để trống</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['tenerr']))
+        { echo'<font color="red">Họ tên vượt quá kí tự cho phép</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['ktdb']))
+        { echo'<font color="red">Username không được chứa ký tự đặc biệt</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['tktt']))
+        { echo'<font color="red">Username đã tồn tại</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['chieudai']))
+        { echo'<font color="red">Username vượt quá kích thước quy định</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['sdterr']))
+        { echo'<font color="red">Số điện thoại không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['gioitinherr']))
+        { echo'<font color="red">Giới tính không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['ngaysinherr']))
+        { echo'<font color="red">Ngày sinh không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['capdoerr']))
+        { echo'<font color="red">Cấp độ không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['sdttt']))
+        { echo'<font color="red">Số điện thoại đẫ tồn tại</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        if (isset($_GET['bhcd']))
+        { echo'<font color="red">Chiều dài ký tự vượt quá mức cho phép</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+    echo '</center>';
 switch($_GET[mod])
 {
 default:
@@ -64,6 +88,7 @@ echo'</b>';
 echo'</div>';
 break;
 case 'sua_tv':
+
  $id=abs(intval($_GET['maso']));
     $req1 = mysql_query("SELECT * FROM `users` WHERE `id`='$id'");
     $b = mysql_fetch_array($req1);
@@ -76,50 +101,252 @@ break;
 else
 {
     echo '<b><center>Hãy sửa lại các thông tin theo mong muốn</center>
-    <br>Mã số : '.$id.'</b><br>';
+    <br>Mã số : '.$id.'
+    <br>Username : '.$b[usr].'</b><br>';
     echo '<form action="choosing.php?mod=sua_tvxong&id='.$id.'" method="post">';
-echo"Tên nặc danh:<br/>
-<input class='input' type=\"text\" value=\"$b[usr]\" size=\"100\" name=\"usr\"/><br/>
-Họ va chữ lót:<br/>
+echo"Họ và chữ lót: (không quá 20 kí tự)<br/>
 <input class='input' type=\"text\" value=\"$b[holot]\" size=\"50\" name=\"holot\"/><br/>
-Tên:<br/>
+Tên: (Không quá 10 kí tự)<br/>
 <input class='input' type=\"text\" value=\"$b[ten]\" size=\"50\" name=\"ten\"/><br/>
-Ngày sinh: dạng (YYYY-MM-DD)<br/>
-<input class='input' type=\"text\" value=\"$b[ngaysinh]\" size=\"100\" name=\"ngaysinh\"/><br/>
-SĐT ( tối đa 11 số)<br/>
-<input class='input' type=\"text\" value=\"$b[SDT]\" size=\"100\" name=\"SDT\"/><br/>
-Giới tính<br/>
-<input class='input' type=\"text\" value=\"$b[gioitinh]\" size=\"100\" name=\"gioitinh\"/><br/>
+Ngày sinh: năm trong khoảng 1920 đến 2013 (dạng YYYY-MM-DD) Hiện tại là $b[ngaysinh]<br/>
+<input class='input' type=\"text\" value=\"\" size=\"7\" name=\"nam\"/>
+<input class='input' type=\"text\" value=\"\" size=\"5\" name=\"thang\"/>
+<input class='input' type=\"text\" value=\"\" size=\"5\" name=\"ngay\"/><br/>
+SĐT (trong khoảng 9 đến 11 số)<br/>
+<input class='input' type=\"text\" value=\"$b[SDT]\" size=\"50\" name=\"SDT\"/><br/>
+Giới tính: (Nam hoặc Nữ)<br/>
+<input class='input' type=\"text\" value=\"$b[gioitinh]\" size=\"50\" name=\"gioitinh\"/><br/>
 Cấp độ (Thường hoặc Vip)<br/>
-<input class='input' type=\"text\" value=\"$b[capdo]\" size=\"100\" name=\"capdo\"/><br/>
+<input class='input' type=\"text\" value=\"$b[capdo]\" size=\"50\" name=\"capdo\"/><br/>
 <input class=\"button\" type=\"submit\" value=\"Sửa\" /></form>";
 }
 break;
 case 'sua_tvxong':
     $id=abs(intval($_GET['id']));
+$sdt1 = mysql_query("SELECT * FROM `users` WHERE `SDT` = '$_POST[SDT]'");
+$sdt2=mysql_num_rows($sdt1);
     $req1 = mysql_query("SELECT * FROM `users` WHERE `id`='$id'");
+    $b = mysql_fetch_array($req1);
 $avto1=mysql_num_rows($req1);
-    if(($_POST[usr]) == '' or ($_POST[holot]) == '' or ($_POST[ten]) == '' or ($_POST[ngaysinh]) == '' or ($_POST[SDT]) == '' or ($_POST[gioitinh]) == '' or ($_POST[capdo]) == '' )
-        echo '<b><font color=red>Không được để trống</font></b><br/>';
-        else
             if($avto1<1)
              {
                 echo 'Thành viên không tồn tại.<br>';
-            }
+              }
             else
-        {
+                {
+                $ngaysinh = $_POST['nam']."-".$_POST['thang']."-".$_POST['ngay'];
+                $so = '/^[0-9]+$/';
+if(($_POST[holot]) == '' || ($_POST[ten]) == '' || ($_POST[SDT]) == '' || ($_POST[gioitinh]) == '' || ($_POST[ngay]) == '' || ($_POST[thang]) == '' || ($_POST[nam]) == '' || ($_POST[capdo]) == '')
+        {header ('Location: choosing.php?null');exit;}
+if (preg_match($so, ($_POST[SDT])) == false)
+{header ('Location: choosing.php?sdterr');exit;}
+if(@strlen($_POST['holot']) > 20 || @strlen($_POST['ten']) > 10)
+        {header ('Location: choosing.php?tenerr');exit;}
+if(($_POST[SDT]) < 1 || @strlen($_POST[SDT]) < 9 || @strlen($_POST[SDT]) > 11 )
+        {header ('Location: choosing.php?sdterr');exit;}
+if($b['SDT'] != ($_POST['SDT']))
+{
+        if($sdt2 > 0)
+                {header ('Location: choosing.php?sdttt');exit;}     
+}
+if($_POST[gioitinh]!='Nam' and ($_POST[gioitinh])!='Nữ')
+        {header ('Location: choosing.php?gioitinherr');exit;}
+        if($_POST[capdo]!='Thường' and ($_POST[capdo])!='Vip')
+        {header ('Location: choosing.php?capdoerr');exit;}
+if(preg_match($so, ($_POST[ngay])) == false || preg_match($so, ($_POST[thang])) == false || preg_match($so, ($_POST[nam])) == false || (($_POST[ngay]) < 1 || ($_POST[ngay]) > 31) || (($_POST[thang]) < 1 || ($_POST[thang]) > 12) || (($_POST[nam]) > 2013 || ($_POST[nam]) < 1920))
+        {header ('Location: choosing.php?ngaysinherr');exit;}
+if($_POST[thang] == 2 and $_POST[ngay]>29)
+        {header ('Location: choosing.php?ngaysinherr');exit;}
             mysql_query("UPDATE
             `users` SET
-            `usr` = '$_POST[usr]',
             `holot` = '$_POST[holot]',
             `ten` = '$_POST[ten]',
-            `ngaysinh` = '$_POST[ngaysinh]',
+            `ngaysinh` = '$ngaysinh',
             `SDT` = '$_POST[SDT]',
             `gioitinh` = '$_POST[gioitinh]',
             `capdo` = '$_POST[capdo]'
             WHERE `id`='$id' LIMIT 1") or die (mysql_error());
             echo '<b><font color=green>Sửa thành công</font></b><br/>';
-        }
+            $myfile = fopen("demo/user.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[usr]."#";
+else
+        $txt = $mag[usr];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/pass.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[pass]."#";
+else
+        $txt = $mag[pass];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/ngaydangky.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[data_reg]."#";
+else
+        $txt = $mag[data_reg];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/holot.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[holot]."#";
+else
+        $txt = $mag[holot];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/tentv.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[ten]."#";
+else
+        $txt = $mag[ten];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/ngaysinh.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[ngaysinh]."#";
+else
+        $txt = $mag[ngaysinh];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/SDT.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[SDT]."#";
+else
+        $txt = $mag[SDT];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/gioitinh.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[gioitinh]."#";
+else
+        $txt = $mag[gioitinh];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/capdo.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[capdo]."#";
+else
+        $txt = $mag[capdo];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+                }
 break;
 case 'xoa_tv':
 $id=abs(intval($_GET['maso']));
@@ -133,7 +360,7 @@ echo '<b>Thành viên không tồn tại</b><br>';
 break;
 case 'ds_bh':
     echo '<center><b><font color="#01DF01">Dưới đây là danh sách bài hát có trong hệ thống</font></b></center>';
-    echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Mã số</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Tên bài hát</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Thể loại</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Ca sĩ</font></td><td align="center" bgcolor="#D0F5A9" width="40%"><font color="#004800">Đường dẫn</font></td></tr></tbody></table>';
+    echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Mã số</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Tên bài hát</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Thể loại</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Ca sĩ</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Đường dẫn</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ảnh</font></td></tr></tbody></table>';
 $at_page=10;
 $page = (int)$_GET['page'];
 $s=mysql_result(mysql_query("SELECT COUNT(`idBH`) FROM `baihat`"),0);
@@ -148,7 +375,7 @@ $avto=mysql_num_rows($req);
 
 if($avto>=1){
 While($mag = mysql_fetch_array($req)){
-echo '<table border="1" background="anhnen.jpg" width="100%" height="5%"><tbody><tr><td align="center" width="10%"><font color="#1C1C1C">'.$mag[idBH].'</font></td><td align="center" width="20%"><font color="#1C1C1C">'.$mag[TenBH].'</font></td><td align="center" width="15%"><font color="#1C1C1C">'.$mag[theloai].'</font></td><td align="center" width="15%"><font color="#1C1C1C">'.$mag[casi].'</font></td><td align="center" width="30%"><font color="#1C1C1C">'.$mag[mp3].'</font></td><td align="center" width="5%"><font color="red"><a href="choosing.php?mod=xoa_bh&&maso='.$mag[idBH].'">[Xóa]</a></font></td><td align="center" width="5%"><font color="red"><a href="choosing.php?mod=sua_bh&&maso='.$mag[idBH].'">[Sửa]</a></font></td></tr></tbody></table>';
+echo '<table border="1" background="anhnen.jpg" width="100%" height="5%"><tbody><tr><td align="center" width="10%"><font color="#1C1C1C">'.$mag[idBH].'</font></td><td align="center" width="20%"><font color="#1C1C1C">'.$mag[TenBH].'</font></td><td align="center" width="15%"><font color="#1C1C1C">'.$mag[theloai].'</font></td><td align="center" width="15%"><font color="#1C1C1C">'.$mag[casi].'</font></td><td align="center" width="30%"><font color="#1C1C1C">'.$mag[mp3].'</font></td><td align="center" width="30%"><font color="#1C1C1C">'.$mag[anh].'</font></td><td align="center" width="5%"><font color="red"><a href="choosing.php?mod=xoa_bh&&maso='.$mag[idBH].'">[Xóa]</a></font></td><td align="center" width="5%"><font color="red"><a href="choosing.php?mod=sua_bh&&maso='.$mag[idBH].'">[Sửa]</a></font></td></tr></tbody></table>';
 
 }}else{
 echo'<b>Không có bài hát nào trong danh sách.</b><br/>';}
@@ -174,19 +401,23 @@ break;
 case 'them_bh':
     echo '<center><b>Hãy nhập thông tin bài hát cần thêm vào hệ thống. Đường dẫn được lấy từ nguồn Zing Mp3</b></center><hr>';
     echo '<form action="choosing.php?mod=them" method="post">';
-echo"Tên bài hát:<br/>
-<input class='input' type=\"text\" value=\"\" size=\"100\" name=\"ten\"/><br/>
-Ca sĩ:<br/>
+echo"Tên bài hát: (Không quá 70 ký tự)<br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"ten\"/><br/>
+Ca sĩ: (không quá 40 ký tự) <br/>
 <input class='input' type=\"text\" value=\"\" size=\"50\" name=\"casi\"/><br/>
-Thể loại:<br/>
+Thể loại: (không quá 20 ký tự)<br/>
 <input class='input' type=\"text\" value=\"\" size=\"50\" name=\"theloai\"/><br/>
 Đường dẫn:<br/>
-<input class='input' type=\"text\" value=\"\" size=\"100\" name=\"duongdan\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"60\" name=\"duongdan\"/><br/>
+Ảnh:<br/>
+<input class='input' type=\"text\" value=\"\" size=\"60\" name=\"anh\"/><br/>
 <input class=\"button\" type=\"submit\" value=\"Thêm\" /></form>";
 break;
 case 'them':
-    if(($_POST[ten]) == '' or ($_POST[casi]) == '' or ($_POST[theloai]) == '' or ($_POST[duongdan]) == '' )
-        echo '<b><font color=red>Không được để trống</font></b><br/>';
+    if(($_POST[ten]) == '' || ($_POST[casi]) == '' || ($_POST[theloai]) == '' || ($_POST[duongdan]) == '' || ($_POST[anh]) == '' )
+         {header ('Location: choosing.php?null');exit;}
+    if(@strlen($_POST[ten]) > 70 || @strlen($_POST[casi]) > 40 || @strlen($_POST[theloai]) > 20 )
+        {header ('Location: choosing.php?bhcd');exit;}
         else
         {
             mysql_query("INSERT INTO
@@ -194,7 +425,8 @@ case 'them':
             `TenBH` = '$_POST[ten]',
             `theloai` = '$_POST[theloai]',
             `casi` = '$_POST[casi]',
-            `mp3` = '$_POST[duongdan]'") or die (mysql_error());
+            `mp3` = '$_POST[duongdan]',
+            `anh` = '$_POST[anh]'") or die (mysql_error());
             echo '<b><font color=green>Thêm thành công</font></b><br/>';
         }
             
@@ -214,39 +446,44 @@ else
     echo '<b><center>Hãy sửa lại các thông tin theo mong muốn</center>
     <br>Mã số : '.$id.'</b><br>';
     echo '<form action="choosing.php?mod=sua&id='.$id.'" method="post">';
-echo"Tên bài hát:<br/>
-<input class='input' type=\"text\" value=\"$b[TenBH]\" size=\"100\" name=\"ten\"/><br/>
-Ca sĩ:<br/>
+echo"Tên bài hát: (Không quá 70 ký tự)<br/>
+<input class='input' type=\"text\" value=\"$b[TenBH]\" size=\"50\" name=\"ten\"/><br/>
+Ca sĩ: (không quá 40 ký tự)<br/>
 <input class='input' type=\"text\" value=\"$b[casi]\" size=\"50\" name=\"casi\"/><br/>
-Thể loại:<br/>
+Thể loại: (không quá 20 ký tự)<br/>
 <input class='input' type=\"text\" value=\"$b[theloai]\" size=\"50\" name=\"theloai\"/><br/>
 Liên kết nguồn:<br/>
-<input class='input' type=\"text\" value=\"$b[mp3]\" size=\"100\" name=\"duongdan\"/><br/>
+<input class='input' type=\"text\" value=\"$b[mp3]\" size=\"60\" name=\"duongdan\"/><br/>
+Ảnh:<br/>
+<input class='input' type=\"text\" value=\"$b[anh]\" size=\"60\" name=\"anh\"/><br/>
 <input class=\"button\" type=\"submit\" value=\"Sửa\" /></form>";
 }
 break;
 case 'sua':
+if(($_POST[ten]) == '' || ($_POST[casi]) == '' || ($_POST[theloai]) == '' || ($_POST[duongdan]) == '' || ($_POST[anh]) == '' )
+{header ('Location: choosing.php?null');exit;}
     $id=abs(intval($_GET['id']));
     $req1 = mysql_query("SELECT * FROM `baihat` WHERE `idBH`='$id'");
 $avto1=mysql_num_rows($req1);
-    if(($_POST[ten]) == '' or ($_POST[casi]) == '' or ($_POST[theloai]) == '' or ($_POST[duongdan]) == '' )
-        echo '<b><font color=red>Không được để trống</font></b><br/>';
-        else
             if($avto1<1)
              {
                 echo 'Bài hát không tồn tại.<br>';
             }
             else
-        {
+                {
+                
+                 if(@strlen($_POST[ten]) > 70 || @strlen($_POST[casi]) > 40 || @strlen($_POST[theloai]) > 20 )
+                 {header ('Location: choosing.php?bhcd');exit;}
             mysql_query("UPDATE
             `baihat` SET
             `TenBH` = '$_POST[ten]',
             `theloai` = '$_POST[theloai]',
             `casi` = '$_POST[casi]',
-            `mp3` = '$_POST[duongdan]'
-            WHERE `maso`='$id' LIMIT 1") or die (mysql_error());
+            `mp3` = '$_POST[duongdan]',
+            `anh` = '$_POST[anh]'
+            WHERE `idBH`='$id' LIMIT 1") or die (mysql_error());
             echo '<b><font color=green>Sửa thành công</font></b><br/>';
-        }
+                }
     
 break;
 case 'xoa_bh':
@@ -294,6 +531,26 @@ if($stt < $avto)
         $txt = $mag[casi]."#";
 else
         $txt = $mag[casi];
+fwrite($myfile, $txt);
+
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/anh.txt", "w+");
+$req = mysql_query("SELECT * FROM `baihat` ORDER BY `idBH` ASC");
+$avto=mysql_num_rows($req);
+
+if($avto>=1){
+$stt = 0;
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[anh]."#";
+else
+        $txt = $mag[anh];
 fwrite($myfile, $txt);
 
 }

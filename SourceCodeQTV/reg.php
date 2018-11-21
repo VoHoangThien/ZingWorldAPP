@@ -17,8 +17,8 @@ if (isset($_GET['tktt']))
 { echo'<font color="red">Username đã tồn tại</font><br>';}
 if (isset($_GET['chieudai']))
 { echo'<font color="red">Username hoặc Password vượt quá kích thước quy định</font><br>';}
-if (isset($_GET['khoangtrang']))
-{ echo'<font color="red">Username hoặc Password không được chứa khoảng trắng</font><br>';}
+if (isset($_GET['sdttt']))
+{ echo'<font color="red">Số điện thoại đã tồn tại</font><br>';}
 if (isset($_GET['sdterr']))
 { echo'<font color="red">Số điện thoại không hợp lệ</font><br>';}
 if (isset($_GET['gioitinherr']))
@@ -44,20 +44,22 @@ Tên: (Không quá 10 kí tự) <br/>
 <input class='input' type=\"text\" value=\"$b[mp3]\" size=\"50\" name=\"ten\"/><br/>
 SDT:<br/>
 <input class='input' type=\"numbers\" value=\"\" size=\"50\" name=\"sdt\"/><br/>
-Giới tính:<br/>
+Giới tính: (Nam hoặc Nữ)<br/>
 <input class='input' type=\"text\" value=\"\" size=\"50\" name=\"gioitinh\"/><br/>
-Ngày sinh: (dạng YYYY-MM-DD) <br/>
+Ngày sinh: (dạng YYYY-MM-DD) năm trong khoảng 1920 đến 2013 <br/>
 <input class='input' type=\"text\" value=\"\" size=\"7\" name=\"nam\"/>
 <input class='input' type=\"text\" value=\"\" size=\"5\" name=\"thang\"/>
 <input class='input' type=\"text\" value=\"\" size=\"5\" name=\"ngay\"/><br/>
 <input class=\"button\" type=\"submit\" value=\"Đăng ký\" /></form>";
 break;
 case 'add':
-$_POST['pass'] = trim($_POST['pass']);
+$_POST['pass'] = preg_replace('/\s+/', '', ($_POST['pass']));
 $dater=date("Y-m-d");
 $ngaysinh = $_POST['nam']."-".$_POST['thang']."-".$_POST['ngay'];
 $tk = mysql_query("SELECT * FROM `users` WHERE `usr` = '$_POST[usr]'");
 $tkr=mysql_num_rows($tk);
+$sdt1 = mysql_query("SELECT * FROM `users` WHERE `SDT` = '$_POST[sdt]'");
+$sdt2=mysql_num_rows($sdt1);
 $so = '/^[0-9]+$/';
 if(($_POST[usr]) == '' || ($_POST[pass]) == '' || ($_POST[holot]) == '' || ($_POST[ten]) == '' || ($_POST[sdt]) == '' || ($_POST[gioitinh]) == '' || ($_POST[ngay]) == '' || ($_POST[thang]) == '' || ($_POST[nam]) == '')
         {header ('Location: reg.php?null');exit;}
@@ -67,16 +69,16 @@ if($tkr > 0)
         {header ('Location: reg.php?tktt');exit;}
 if(strlen($_POST[usr]) > 10 || strlen($_POST[pass]) > 20)
         {header ('Location: reg.php?chieudai');exit;}
+if($sdt2 > 0)
+        {header ('Location: reg.php?sdttt');exit;}
 
-/*if(prg_match("/\s/", ($_POST[usr])) || prg_match("/\s/", ($_POST[pass])))
-        {header ('Location: reg.php?khoangtrang');exit;}*/
 if (preg_match($so, ($_POST[sdt])) == false)
 {header ('Location: reg.php?sdterr');exit;}
 if(@strlen($_POST['holot']) > 20 || @strlen($_POST['ten']) > 10)
         {header ('Location: reg.php?tenerr');exit;}
 if(($_POST[sdt]) < 1 || @strlen($_POST[sdt]) < 9 || @strlen($_POST[sdt]) > 11 )
         {header ('Location: reg.php?sdterr');exit;}
-if($_POST[gioitinh]!='Nam' and ($_POST[gioitinh])!='Nu')
+if($_POST[gioitinh]!='Nam' and ($_POST[gioitinh])!='Nữ')
         {header ('Location: reg.php?gioitinherr');exit;}
 if(preg_match($so, ($_POST[ngay])) == false || preg_match($so, ($_POST[thang])) == false || preg_match($so, ($_POST[nam])) == false || (($_POST[ngay]) < 1 || ($_POST[ngay]) > 31) || (($_POST[thang]) < 1 || ($_POST[thang]) > 12) || (($_POST[nam]) > 2013 || ($_POST[nam]) < 1920))
         {header ('Location: reg.php?ngaysinherr');exit;}
@@ -93,26 +95,192 @@ mysql_query("INSERT INTO
         `SDT` = '$_POST[sdt]',
         `gioitinh` = '$_POST[gioitinh]',
         `capdo` = 'Thường'");
-$myfile = fopen("demo/taikhoan.txt", "w");
+
+$myfile = fopen("demo/user.txt", "w");
 $req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
 $avto=mysql_num_rows($req);
 {
+$stt = 0;
 if($avto>=1){
 While($mag = mysql_fetch_array($req)){
-        $txt = $mag[usr]."#".$mag[pass]."#".$mag[usr]."#".$mag[data_reg]."#".$mag[holot]."#".$mag[ten]."#".$mag[ngaysinh]."#".$mag[SDT]."#".$mag[gioitinh]."#".$mag[capdo]."\n";
-        fwrite($myfile, $txt);
-}
-
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[usr]."#";
+else
+        $txt = $mag[usr];
+fwrite($myfile, $txt);
 }
 }
         
+}
 
 fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/pass.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[pass]."#";
+else
+        $txt = $mag[pass];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/ngaydangky.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[data_reg]."#";
+else
+        $txt = $mag[data_reg];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/holot.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[holot]."#";
+else
+        $txt = $mag[holot];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/tentv.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[ten]."#";
+else
+        $txt = $mag[ten];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/ngaysinh.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[ngaysinh]."#";
+else
+        $txt = $mag[ngaysinh];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/SDT.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[SDT]."#";
+else
+        $txt = $mag[SDT];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/gioitinh.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[gioitinh]."#";
+else
+        $txt = $mag[gioitinh];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
+$myfile = fopen("demo/capdo.txt", "w");
+$req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
+$avto=mysql_num_rows($req);
+{
+$stt = 0;
+if($avto>=1){
+While($mag = mysql_fetch_array($req)){
+$stt = $stt + 1;
+if($stt < $avto)
+        $txt = $mag[capdo]."#";
+else
+        $txt = $mag[capdo];
+fwrite($myfile, $txt);
+}
+}
+        
+}
+
+fclose($myfile);
+/////////////////////////////
 echo 'Đăng ký thành công, hãy đăng nhập vào ứng dụng để nghe nhạc.<br><a href=index.php>Trang chủ</a>';
 break;
 
 }
-
+echo '<a href="index.php"><center>Trang chủ</center></a><br>';
 }else{
 header ('Location: index.php');
 }
