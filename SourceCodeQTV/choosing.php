@@ -48,7 +48,7 @@ session_destroy();
 
 break;
 case 'ds_tv':
-    echo '<center><b><font color="#01DF01">Dưới đây là danh sách thành viên có trong hệ thống</font></b></center>';
+    echo '<center><b><font color="#01DF01">Dưới đây là danh sách các thành viên có trong hệ thống</font></b></center>';
     echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Mã thành viên</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên nặc danh</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Họ và chữ lót</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên</font></td>
     <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ngày sinh</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">SĐT</font></td><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Giới tính</font></td><td align="center" bgcolor="#D0F5A9" width="25%"><font color="#004800">Cấp độ</font></td></tr></tbody></table>';
 $at_page=10;
