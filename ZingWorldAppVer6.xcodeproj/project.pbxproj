@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A800A565217752BC005BC1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800A564217752BC005BC1E5 /* AppDelegate.swift */; };
+		A800A567217752BC005BC1E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800A566217752BC005BC1E5 /* ViewController.swift */; };
+		A800A56A217752BC005BC1E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A800A568217752BC005BC1E5 /* Main.storyboard */; };
+		A800A56C217752BD005BC1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A800A56B217752BD005BC1E5 /* Assets.xcassets */; };
+		A800A56F217752BD005BC1E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A800A56D217752BD005BC1E5 /* LaunchScreen.storyboard */; };
+		A800A57A217752BD005BC1E5 /* ZingWorldAppVer6Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800A579217752BD005BC1E5 /* ZingWorldAppVer6Tests.swift */; };
+		A800A58B2177590F005BC1E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800A58A2177590F005BC1E5 /* HomeViewController.swift */; };
+		A8097FF821A2F7F20093C01A /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8097FF721A2F7F20093C01A /* PlayViewController.swift */; };
+		A8097FFB21A2FD010093C01A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8097FFA21A2FD000093C01A /* AVFoundation.framework */; };
+		A889780121A590B70006D472 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780021A590B70006D472 /* LoginTest.swift */; };
+		A889780721A594490006D472 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780621A594490006D472 /* Member.swift */; };
+		A889780B21A5A21E0006D472 /* HomeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780A21A5A21E0006D472 /* HomeTest.swift */; };
+		A889780D21A5A3320006D472 /* PlaySongTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780C21A5A3320006D472 /* PlaySongTest.swift */; };
+		A8CDF13B21A5040F0090BB6E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDF13A21A5040F0090BB6E /* RegisterViewController.swift */; };
+		A8E62B3E21A4641B008290F2 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E62B3D21A4641B008290F2 /* MoreViewController.swift */; };
+		A8E62B4021A46EA2008290F2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E62B3F21A46EA2008290F2 /* HomeTableViewCell.swift */; };
+		A8E62B4A21A47CEF008290F2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E62B4921A47CEF008290F2 /* LoginViewController.swift */; };
+		A8F7108721A554C900A93E60 /* SelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F7108621A554C900A93E60 /* SelfViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A800A576217752BD005BC1E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A800A559217752BC005BC1E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A800A560217752BC005BC1E5;
+			remoteInfo = ZingWorldAppVer6;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A800A561217752BC005BC1E5 /* ZingWorldAppVer6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZingWorldAppVer6.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A800A564217752BC005BC1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A800A566217752BC005BC1E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A800A569217752BC005BC1E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A800A56B217752BD005BC1E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A800A56E217752BD005BC1E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A800A570217752BD005BC1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A800A575217752BD005BC1E5 /* ZingWorldAppVer6Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZingWorldAppVer6Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A800A579217752BD005BC1E5 /* ZingWorldAppVer6Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZingWorldAppVer6Tests.swift; sourceTree = "<group>"; };
+		A800A57B217752BD005BC1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A800A58A2177590F005BC1E5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A8097FF721A2F7F20093C01A /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		A8097FFA21A2FD000093C01A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A889780021A590B70006D472 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		A889780621A594490006D472 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		A889780A21A5A21E0006D472 /* HomeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTest.swift; sourceTree = "<group>"; };
+		A889780C21A5A3320006D472 /* PlaySongTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySongTest.swift; sourceTree = "<group>"; };
+		A8CDF13A21A5040F0090BB6E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A8E62B3D21A4641B008290F2 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		A8E62B3F21A46EA2008290F2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		A8E62B4921A47CEF008290F2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A8F7108621A554C900A93E60 /* SelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A800A55E217752BC005BC1E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8097FFB21A2FD010093C01A /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A800A572217752BD005BC1E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A800A558217752BC005BC1E5 = {
+			isa = PBXGroup;
+			children = (
+				A800A563217752BC005BC1E5 /* ZingWorldAppVer6 */,
+				A800A578217752BD005BC1E5 /* ZingWorldAppVer6Tests */,
+				A800A562217752BC005BC1E5 /* Products */,
+				A8097FF921A2FD000093C01A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A800A562217752BC005BC1E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A800A561217752BC005BC1E5 /* ZingWorldAppVer6.app */,
+				A800A575217752BD005BC1E5 /* ZingWorldAppVer6Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A800A563217752BC005BC1E5 /* ZingWorldAppVer6 */ = {
+			isa = PBXGroup;
+			children = (
+				A800A564217752BC005BC1E5 /* AppDelegate.swift */,
+				A800A566217752BC005BC1E5 /* ViewController.swift */,
+				A800A568217752BC005BC1E5 /* Main.storyboard */,
+				A800A56B217752BD005BC1E5 /* Assets.xcassets */,
+				A800A56D217752BD005BC1E5 /* LaunchScreen.storyboard */,
+				A800A570217752BD005BC1E5 /* Info.plist */,
+				A800A58A2177590F005BC1E5 /* HomeViewController.swift */,
+				A8097FF721A2F7F20093C01A /* PlayViewController.swift */,
+				A8E62B3D21A4641B008290F2 /* MoreViewController.swift */,
+				A8E62B3F21A46EA2008290F2 /* HomeTableViewCell.swift */,
+				A8E62B4921A47CEF008290F2 /* LoginViewController.swift */,
+				A8CDF13A21A5040F0090BB6E /* RegisterViewController.swift */,
+				A8F7108621A554C900A93E60 /* SelfViewController.swift */,
+				A889780621A594490006D472 /* Member.swift */,
+			);
+			path = ZingWorldAppVer6;
+			sourceTree = "<group>";
+		};
+		A800A578217752BD005BC1E5 /* ZingWorldAppVer6Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A800A579217752BD005BC1E5 /* ZingWorldAppVer6Tests.swift */,
+				A800A57B217752BD005BC1E5 /* Info.plist */,
+				A889780021A590B70006D472 /* LoginTest.swift */,
+				A889780A21A5A21E0006D472 /* HomeTest.swift */,
+				A889780C21A5A3320006D472 /* PlaySongTest.swift */,
+			);
+			path = ZingWorldAppVer6Tests;
+			sourceTree = "<group>";
+		};
+		A8097FF921A2FD000093C01A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A8097FFA21A2FD000093C01A /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A800A560217752BC005BC1E5 /* ZingWorldAppVer6 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A800A57E217752BD005BC1E5 /* Build configuration list for PBXNativeTarget "ZingWorldAppVer6" */;
+			buildPhases = (
+				A800A55D217752BC005BC1E5 /* Sources */,
+				A800A55E217752BC005BC1E5 /* Frameworks */,
+				A800A55F217752BC005BC1E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZingWorldAppVer6;
+			productName = ZingWorldAppVer6;
+			productReference = A800A561217752BC005BC1E5 /* ZingWorldAppVer6.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A800A574217752BD005BC1E5 /* ZingWorldAppVer6Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A800A581217752BD005BC1E5 /* Build configuration list for PBXNativeTarget "ZingWorldAppVer6Tests" */;
+			buildPhases = (
+				A800A571217752BD005BC1E5 /* Sources */,
+				A800A572217752BD005BC1E5 /* Frameworks */,
+				A800A573217752BD005BC1E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A800A577217752BD005BC1E5 /* PBXTargetDependency */,
+			);
+			name = ZingWorldAppVer6Tests;
+			productName = ZingWorldAppVer6Tests;
+			productReference = A800A575217752BD005BC1E5 /* ZingWorldAppVer6Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A800A559217752BC005BC1E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Thien Vo";
+				TargetAttributes = {
+					A800A560217752BC005BC1E5 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					A800A574217752BD005BC1E5 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = A800A560217752BC005BC1E5;
+					};
+				};
+			};
+			buildConfigurationList = A800A55C217752BC005BC1E5 /* Build configuration list for PBXProject "ZingWorldAppVer6" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A800A558217752BC005BC1E5;
+			productRefGroup = A800A562217752BC005BC1E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A800A560217752BC005BC1E5 /* ZingWorldAppVer6 */,
+				A800A574217752BD005BC1E5 /* ZingWorldAppVer6Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A800A55F217752BC005BC1E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A800A56F217752BD005BC1E5 /* LaunchScreen.storyboard in Resources */,
+				A800A56C217752BD005BC1E5 /* Assets.xcassets in Resources */,
+				A800A56A217752BC005BC1E5 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A800A573217752BD005BC1E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A800A55D217752BC005BC1E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A8E62B4A21A47CEF008290F2 /* LoginViewController.swift in Sources */,
+				A8E62B4021A46EA2008290F2 /* HomeTableViewCell.swift in Sources */,
+				A8E62B3E21A4641B008290F2 /* MoreViewController.swift in Sources */,
+				A8CDF13B21A5040F0090BB6E /* RegisterViewController.swift in Sources */,
+				A8097FF821A2F7F20093C01A /* PlayViewController.swift in Sources */,
+				A800A567217752BC005BC1E5 /* ViewController.swift in Sources */,
+				A800A565217752BC005BC1E5 /* AppDelegate.swift in Sources */,
+				A8F7108721A554C900A93E60 /* SelfViewController.swift in Sources */,
+				A800A58B2177590F005BC1E5 /* HomeViewController.swift in Sources */,
+				A889780721A594490006D472 /* Member.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A800A571217752BD005BC1E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A889780B21A5A21E0006D472 /* HomeTest.swift in Sources */,
+				A800A57A217752BD005BC1E5 /* ZingWorldAppVer6Tests.swift in Sources */,
+				A889780D21A5A3320006D472 /* PlaySongTest.swift in Sources */,
+				A889780121A590B70006D472 /* LoginTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A800A577217752BD005BC1E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A800A560217752BC005BC1E5 /* ZingWorldAppVer6 */;
+			targetProxy = A800A576217752BD005BC1E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A800A568217752BC005BC1E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A800A569217752BC005BC1E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A800A56D217752BD005BC1E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A800A56E217752BD005BC1E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A800A57C217752BD005BC1E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A800A57D217752BD005BC1E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A800A57F217752BD005BC1E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CMGTJ559HP;
+				INFOPLIST_FILE = ZingWorldAppVer6/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = thien.ZingWorldAppVer6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A800A580217752BD005BC1E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CMGTJ559HP;
+				INFOPLIST_FILE = ZingWorldAppVer6/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = thien.ZingWorldAppVer6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A800A582217752BD005BC1E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CMGTJ559HP;
+				INFOPLIST_FILE = ZingWorldAppVer6Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = thien.ZingWorldAppVer6Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZingWorldAppVer6.app/ZingWorldAppVer6";
+			};
+			name = Debug;
+		};
+		A800A583217752BD005BC1E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CMGTJ559HP;
+				INFOPLIST_FILE = ZingWorldAppVer6Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = thien.ZingWorldAppVer6Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZingWorldAppVer6.app/ZingWorldAppVer6";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A800A55C217752BC005BC1E5 /* Build configuration list for PBXProject "ZingWorldAppVer6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A800A57C217752BD005BC1E5 /* Debug */,
+				A800A57D217752BD005BC1E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A800A57E217752BD005BC1E5 /* Build configuration list for PBXNativeTarget "ZingWorldAppVer6" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A800A57F217752BD005BC1E5 /* Debug */,
+				A800A580217752BD005BC1E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A800A581217752BD005BC1E5 /* Build configuration list for PBXNativeTarget "ZingWorldAppVer6Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A800A582217752BD005BC1E5 /* Debug */,
+				A800A583217752BD005BC1E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A800A559217752BC005BC1E5 /* Project object */;
+}
