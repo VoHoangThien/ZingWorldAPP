@@ -48,7 +48,7 @@ session_destroy();
 
 break;
 case 'ds_tv':
-    echo '<center><b><font color="#01DF01">Dưới đây là danh sách các thành viên có trong hệ thống</font></b></center>';
+    echo '<center><b><font color="#01DF01">Dưới đây là danh sách thành viên có trong hệ thống</font></b></center>';
     echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Mã thành viên</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên nặc danh</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Họ và chữ lót</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên</font></td>
     <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ngày sinh</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">SĐT</font></td><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Giới tính</font></td><td align="center" bgcolor="#D0F5A9" width="25%"><font color="#004800">Cấp độ</font></td></tr></tbody></table>';
 $at_page=10;
@@ -360,18 +360,7 @@ echo '<b>Thành viên không tồn tại</b><br>';
 break;
 case 'ds_bh':
     echo '<center><b><font color="#01DF01">Dưới đây là danh sách bài hát có trong hệ thống</font></b></center>';
-    echo '<br>
-    <table border="1" width="100%">
-    <tbody>
-    <tr>
-            <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Mã số</font></td>
-            <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Tên bài hát</font></td>
-            <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Thể loại</font></td>
-            <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Ca sĩ</font></td>
-            <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Đường dẫn</font></td>
-            <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ảnh</font></td>
-            <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Hành động</font></td>
-    </tr>';
+    echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Mã số</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Tên bài hát</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Thể loại</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Ca sĩ</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Đường dẫn</font></td><td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ảnh</font></td></tr></tbody></table>';
 $at_page=10;
 $page = (int)$_GET['page'];
 $s=mysql_result(mysql_query("SELECT COUNT(`idBH`) FROM `baihat`"),0);
@@ -386,21 +375,9 @@ $avto=mysql_num_rows($req);
 
 if($avto>=1){
 While($mag = mysql_fetch_array($req)){
-echo '
-<tr>
-<td align="center"><font color="#1C1C1C">'.$mag[idBH].'</font></td>
-<td align="center"><font color="#1C1C1C">'.$mag[TenBH].'</font></td>
-<td align="center"><font color="#1C1C1C">'.$mag[theloai].'</font></td>
-<td align="center"><font color="#1C1C1C">'.$mag[casi].'</font></td>
-<td align="center"><font color="#1C1C1C">'.$mag[mp3].'</font></td>
-<td align="center"><font color="#1C1C1C">'.$mag[anh].'</font></td>
-<td align="center"><font color="red"><a href="choosing.php?mod=xoa_bh&&maso='.$mag[idBH].'">[Xóa]</a></font>
-| <font color="red"><a href="choosing.php?mod=sua_bh&&maso='.$mag[idBH].'">[Sửa]</a></font></td>
-</tr>';
+echo '<table border="1" background="anhnen.jpg" width="100%" height="5%"><tbody><tr><td align="center" width="10%"><font color="#1C1C1C">'.$mag[idBH].'</font></td><td align="center" width="20%"><font color="#1C1C1C">'.$mag[TenBH].'</font></td><td align="center" width="15%"><font color="#1C1C1C">'.$mag[theloai].'</font></td><td align="center" width="15%"><font color="#1C1C1C">'.$mag[casi].'</font></td><td align="center" width="30%"><font color="#1C1C1C">'.$mag[mp3].'</font></td><td align="center" width="30%"><font color="#1C1C1C">'.$mag[anh].'</font></td><td align="center" width="5%"><font color="red"><a href="choosing.php?mod=xoa_bh&&maso='.$mag[idBH].'">[Xóa]</a></font></td><td align="center" width="5%"><font color="red"><a href="choosing.php?mod=sua_bh&&maso='.$mag[idBH].'">[Sửa]</a></font></td></tr></tbody></table>';
 
-}
-echo '</tbody></table>';
-}else{
+}}else{
 echo'<b>Không có bài hát nào trong danh sách.</b><br/>';}
 }
 echo '<div class="trang">';
