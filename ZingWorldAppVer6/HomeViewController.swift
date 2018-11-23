@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var inDexReference:UserDefaults!
     var timer:Timer!
     var indexImg:Int = 0
-   
+    
     @IBOutlet weak var tableViewHome: UITableView!
     @IBOutlet weak var lblNameSongHeader: UILabel!
     @IBOutlet weak var lblNameSingerHearder: UILabel!
@@ -81,7 +81,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             return false
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -124,5 +124,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         inDexReference.setValue(row, forKey: "number")
     }
     
-
+    
 }

@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class PlayViewController: UIViewController {
-
+    
     @IBOutlet weak var imgBG: UIImageView!
     @IBOutlet weak var lblNameSong: UILabel!
     @IBOutlet weak var lblNameSinger: UILabel!
@@ -33,7 +33,7 @@ class PlayViewController: UIViewController {
     var checkRepeat:Bool = true
     var checkShuffle:Bool = true
     var duration:CMTime!
-    var song:Song!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // khoi tao dia xoay
@@ -47,12 +47,12 @@ class PlayViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
-
-   
+    
+    
+    
     @IBAction func sldTiming(_ sender: Any) {
-//        var currentTime:TimeInterval = CMTimeGetSeconds((self.player.currentItem?.currentTime())!)
-//        currentTime =
+        //        var currentTime:TimeInterval = CMTimeGetSeconds((self.player.currentItem?.currentTime())!)
+        //        currentTime =
         //player.currentItem?.currentTime().value = TimeInterval(sldTimer.value)
     }
     @IBAction func btnPlay(_ sender: Any) {
@@ -109,7 +109,7 @@ class PlayViewController: UIViewController {
     }
     @IBAction func btnBack(_ sender: Any) {
         player.pause()
-
+        
     }
     @IBAction func btnRepeat(_ sender: Any) {
         if checkRepeat
@@ -134,7 +134,7 @@ class PlayViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func getSong(_ row:Int)
     {
         btnPlayOut.setImage(UIImage(named: "icons8-pause-480.png"), for: .normal)
@@ -209,7 +209,7 @@ class PlayViewController: UIViewController {
         lblTimeEnd.text = timing(time: CMTimeGetSeconds(duration) - CMTimeGetSeconds((self.player.currentItem?.currentTime())!))
         sldTimer.value = Float(CMTimeGetSeconds((self.player.currentItem?.currentTime())!))
     }
-   
+    
     func timing(time:TimeInterval) -> String
     {
         let timeTemp:Int = Int(time)
@@ -235,5 +235,5 @@ class PlayViewController: UIViewController {
         }
         return "\(stringMin):\(stringSecond)"
     }
-
+    
 }
