@@ -51,8 +51,19 @@ session_destroy();
 break;
 case 'ds_tv':
     echo '<center><b><font color="#01DF01">Dưới đây là danh sách thành viên có trong hệ thống</font></b></center>';
-    echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Mã thành viên</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên nặc danh</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Họ và chữ lót</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên</font></td>
-    <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ngày sinh</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">SĐT</font></td><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Giới tính</font></td><td align="center" bgcolor="#D0F5A9" width="25%"><font color="#004800">Cấp độ</font></td></tr></tbody></table>';
+    echo '<div style="overflow-x:auto;">';
+    echo '<br><table border="1">
+    <tbody>
+    <tr>
+    <td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Mã thành viên</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên nặc danh</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Họ và chữ lót</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ngày sinh</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">SĐT</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Giới tính</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="25%"><font color="#004800">Cấp độ</font></td>
+    <td align="center" bgcolor="#D0F5A9"><font color="#004800">Hành động</font></td></tr>';
 $at_page=10;
 $page = (int)$_GET['page'];
 $s=mysql_result(mysql_query("SELECT COUNT(`id`) FROM `users`"),0);
@@ -68,9 +79,20 @@ $avto=mysql_num_rows($req);
 if($avto>=1){
 While($mag = mysql_fetch_array($req)){
 
- echo '<table border="1" background="anhnen.jpg" width="100%"><tbody><tr><td align="center" width="5%"><font color="#004800">'.$mag[id].'</font></td> <td align="center" width="10%"><font color="#004800">'.$mag[usr].'</font></td><td align="center" width="15%"><font color="#004800">'.$mag[holot].'</font></td><td align="center" width="10%"><font color="#004800">'.$mag[ten].'</font></td><td align="center" width="20%"><font color="#004800">'.$mag[ngaysinh].'</font></td><td align="center" width="10%"><font color="#004800">'.$mag[SDT].'</font></td><td align="center" width="5%"><font color="#004800">'.$mag[gioitinh].'</font></td><td align="center" width="15%"><font color="#004800">'.$mag[capdo].'</font></td><td align="center" width="10%"><font color="red"><a href="choosing.php?mod=sua_tv&&maso='.$mag[id].'">[Sửa]</a></font></td></tr></tbody></table>';
+ echo '<tr>
+         <td align="center" width="5%"><font color="#004800">'.$mag[id].'</font></td>
+         <td align="center" width="10%"><font color="#004800">'.$mag[usr].'</font></td>
+         <td align="center" width="15%"><font color="#004800">'.$mag[holot].'</font></td>
+         <td align="center" width="10%"><font color="#004800">'.$mag[ten].'</font></td>
+         <td align="center" width="20%"><font color="#004800">'.$mag[ngaysinh].'</font></td>
+         <td align="center" width="10%"><font color="#004800">'.$mag[SDT].'</font></td>
+         <td align="center" width="5%"><font color="#004800">'.$mag[gioitinh].'</font></td>
+         <td align="center" width="15%"><font color="#004800">'.$mag[capdo].'</font></td>
+         <td align="center" width="10%"><font color="red"><a href="choosing.php?mod=sua_tv&&maso='.$mag[id].'">[Sửa]</a></font></td></tr>';
 
-}}else{
+}
+echo '</tbody></table></div>';
+}else{
 echo'<b>Không có thành viên nào trong danh sách.</b><br/>';}
 }
 echo '<div class="trang">';
@@ -359,8 +381,9 @@ fclose($myfile);
 break;
 case 'ds_bh':
     echo '<center><b><font color="#01DF01">Dưới đây là danh sách bài hát có trong hệ thống</font></b></center>';
+    echo '<div style="overflow-x:auto;">';
     echo '<br>
-    <table border="1" style="width:100%">
+    <table border="1">
     <tbody>
     <tr>
             <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Mã số</font></td>
@@ -399,6 +422,7 @@ echo '
 
 }
 echo '</tbody></table>';
+echo '</div>';
 }else{
 echo'<b>Không có bài hát nào trong danh sách.</b><br/>';}
 }
