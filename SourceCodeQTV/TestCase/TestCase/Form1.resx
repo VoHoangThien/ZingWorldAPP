@@ -117,7 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtLienkn.Text" xml:space="preserve">
-    <value>http://vnso-zn-11-tf-mp3-s1-zmp3.zadn.vn/ee85458a8ace63903adf/7635040320665034874?authen=exp=1542803171~acl=/ee85458a8ace63903adf/*~hmac=33250694ec42a72bf6b9147263209a7ehttp://vnso-zn-11-tf-mp3-s1-zmp3.zadn.vn/ee85458a8ace63903adf/7635040320665034874?authen=exp=1542803171~acl=/ee85458a8ace63903adf/*~hmac=33250694ec42a72bf6b9147263209a7e</value>
-  </data>
 </root>

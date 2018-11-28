@@ -46,7 +46,7 @@ namespace TestCase
             drive.FindElement(By.CssSelector("body > div:nth-child(2) > table > tbody > tr > td:nth-child(1) > div > b > b > a")).Click();
             Thread.Sleep(1000);
             ///////////////////////////Bài hát có tồn tại//////////////////////
-            drive.FindElement(By.CssSelector("body > div:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(7) > font:nth-child(2) > a")).Click();
+            drive.FindElement(By.CssSelector("table > tbody > tr:nth-child(2) > td:nth-child(7) > font:nth-child(2) > a")).Click();
             Thread.Sleep(1000);
             drive.FindElement(By.CssSelector("body > div:nth-child(2) > form > input:nth-child(2)")).SendKeys(txtTenbh.Text);
             drive.FindElement(By.CssSelector("body > div:nth-child(2) > form > input:nth-child(5)")).SendKeys(txtCasi.Text);
@@ -101,7 +101,7 @@ namespace TestCase
             drive.FindElement(By.CssSelector("body > div:nth-child(2) > table > tbody > tr > td:nth-child(2) > div > b > b > b > b > a")).Click();
             Thread.Sleep(2000);
             //////////////////////////////Thành viên có tồn tạo//////////////////////////////////////
-            drive.FindElement(By.CssSelector("body > div:nth-child(2) > table:nth-child(6) > tbody > tr > td:nth-child(9) > font > a")).Click();
+            drive.FindElement(By.CssSelector("table > tbody > tr:nth-child(3) > td:nth-child(9) > font > a")).Click();
             Thread.Sleep(1000);
             drive.FindElement(By.CssSelector("body > div:nth-child(2) > form > input:nth-child(2)")).SendKeys(txtHolot.Text);
             drive.FindElement(By.CssSelector("body > div:nth-child(2) > form > input:nth-child(5)")).SendKeys(txtTen.Text);
@@ -163,6 +163,50 @@ namespace TestCase
             drive.Quit();
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeletebh_Click(object sender, EventArgs e)
+        {
+            IWebDriver drive = new ChromeDriver();
+            drive.Url = "http://nghenhaconline.co.nf/index.php";
+
+            drive.FindElement(By.CssSelector("body > div.auth > div > center > form > input:nth-child(3)")).SendKeys("Admin");
+            drive.FindElement(By.CssSelector("body > div.auth > div > center > form > input:nth-child(7)")).SendKeys("thanhquang");
+            drive.FindElement(By.CssSelector("body > div.auth > div > center > form > input.button")).Click();
+
+            Thread.Sleep(2000);
+            drive.FindElement(By.CssSelector("body > div:nth-child(2) > table > tbody > tr > td:nth-child(1) > div > b > b > a")).Click();
+            Thread.Sleep(1000);
+            //////////////////////////////Bài hát tồn tại//////////////////////////////////
+            //drive.FindElement(By.CssSelector("table > tbody > tr:nth-child(10) > td:nth-child(7) > font:nth-child(1) > a")).Click();
+            //////////////////////////////Bài hát không tồn tại///////////////////////////
+            drive.Url = "http://nghenhaconline.co.nf/choosing.php?mod=xoa_bh&&maso=318569";
+            lbTbeditbh.Text = drive.FindElement(By.Id("thongbao")).Text;
+            drive.Quit();
+        }
+
+        private void btnCapnhatbh_Click(object sender, EventArgs e)
+        {
+            IWebDriver drive = new ChromeDriver();
+            drive.Url = "http://nghenhaconline.co.nf/index.php";
+
+            drive.FindElement(By.CssSelector("body > div.auth > div > center > form > input:nth-child(3)")).SendKeys("Admin");
+            drive.FindElement(By.CssSelector("body > div.auth > div > center > form > input:nth-child(7)")).SendKeys("thanhquang");
+            drive.FindElement(By.CssSelector("body > div.auth > div > center > form > input.button")).Click();
+
+            Thread.Sleep(2000);
+            drive.FindElement(By.CssSelector("body > div:nth-child(2) > table > tbody > tr > td:nth-child(1) > div > b > b > a")).Click();
+            Thread.Sleep(1000);
+            drive.FindElement(By.CssSelector("body > div:nth-child(2) > b:nth-child(8) > a")).Click();
+            lbTbeditbh.Text = drive.FindElement(By.Id("thongbao")).Text;
+            drive.Quit();
+        }
+
+        
 
 
         

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbLogin = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
@@ -41,6 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbTbeditbh = new System.Windows.Forms.Label();
             this.btnAddbh = new System.Windows.Forms.Button();
+            this.btnDeletebh = new System.Windows.Forms.Button();
             this.btnSuabh = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,28 +69,29 @@
             this.txtCapdo = new System.Windows.Forms.TextBox();
             this.txtGioitinh = new System.Windows.Forms.TextBox();
             this.txtNam = new System.Windows.Forms.TextBox();
+            this.txtHolot = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.txtUserreg = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtPassreg = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtHolotreg = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtTenreg = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtSdtreg = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtGioitinhreg = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtNamreg = new System.Windows.Forms.TextBox();
-            this.txtThangreg = new System.Windows.Forms.TextBox();
-            this.txtNgayreg = new System.Windows.Forms.TextBox();
-            this.btnReg = new System.Windows.Forms.Button();
             this.lbReg = new System.Windows.Forms.Label();
-            this.txtHolot = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnReg = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtGioitinhreg = new System.Windows.Forms.TextBox();
+            this.txtSdtreg = new System.Windows.Forms.TextBox();
+            this.txtTenreg = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtNgayreg = new System.Windows.Forms.TextBox();
+            this.txtHolotreg = new System.Windows.Forms.TextBox();
+            this.txtThangreg = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtPassreg = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtNamreg = new System.Windows.Forms.TextBox();
+            this.btnCapnhatbh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -195,6 +196,8 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.panel2.Controls.Add(this.lbTbeditbh);
             this.panel2.Controls.Add(this.btnAddbh);
+            this.panel2.Controls.Add(this.btnDeletebh);
+            this.panel2.Controls.Add(this.btnCapnhatbh);
             this.panel2.Controls.Add(this.btnSuabh);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label9);
@@ -223,7 +226,7 @@
             // 
             // btnAddbh
             // 
-            this.btnAddbh.Location = new System.Drawing.Point(305, 218);
+            this.btnAddbh.Location = new System.Drawing.Point(305, 206);
             this.btnAddbh.Name = "btnAddbh";
             this.btnAddbh.Size = new System.Drawing.Size(75, 23);
             this.btnAddbh.TabIndex = 2;
@@ -231,9 +234,19 @@
             this.btnAddbh.UseVisualStyleBackColor = true;
             this.btnAddbh.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnDeletebh
+            // 
+            this.btnDeletebh.Location = new System.Drawing.Point(305, 235);
+            this.btnDeletebh.Name = "btnDeletebh";
+            this.btnDeletebh.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletebh.TabIndex = 2;
+            this.btnDeletebh.Text = "Xóa";
+            this.btnDeletebh.UseVisualStyleBackColor = true;
+            this.btnDeletebh.Click += new System.EventHandler(this.btnDeletebh_Click);
+            // 
             // btnSuabh
             // 
-            this.btnSuabh.Location = new System.Drawing.Point(224, 218);
+            this.btnSuabh.Location = new System.Drawing.Point(224, 206);
             this.btnSuabh.Name = "btnSuabh";
             this.btnSuabh.Size = new System.Drawing.Size(75, 23);
             this.btnSuabh.TabIndex = 2;
@@ -317,7 +330,9 @@
             this.txtLienkn.Name = "txtLienkn";
             this.txtLienkn.Size = new System.Drawing.Size(196, 20);
             this.txtLienkn.TabIndex = 1;
-            this.txtLienkn.Text = resources.GetString("txtLienkn.Text");
+            this.txtLienkn.Text = "http://vnso-zn-16-tf-mp3-s1-zmp3.zadn.vn/ee85458a8ace63903adf/7635040320665034874" +
+                "?authen=exp=1543578590~acl=/ee85458a8ace63903adf/*~hmac=b242a237ba4977e2f34d4a28" +
+                "00348581";
             // 
             // txtTheloai
             // 
@@ -480,7 +495,7 @@
             this.txtSdt.Name = "txtSdt";
             this.txtSdt.Size = new System.Drawing.Size(196, 20);
             this.txtSdt.TabIndex = 1;
-            this.txtSdt.Text = "01659852365";
+            this.txtSdt.Text = "01638063226";
             // 
             // txtCapdo
             // 
@@ -505,6 +520,14 @@
             this.txtNam.Size = new System.Drawing.Size(105, 20);
             this.txtNam.TabIndex = 1;
             this.txtNam.Text = "1998";
+            // 
+            // txtHolot
+            // 
+            this.txtHolot.Location = new System.Drawing.Point(105, 36);
+            this.txtHolot.Name = "txtHolot";
+            this.txtHolot.Size = new System.Drawing.Size(196, 20);
+            this.txtHolot.TabIndex = 1;
+            this.txtHolot.Text = "Nguyễn";
             // 
             // txtTen
             // 
@@ -549,6 +572,15 @@
             this.panel4.Size = new System.Drawing.Size(418, 262);
             this.panel4.TabIndex = 3;
             // 
+            // lbReg
+            // 
+            this.lbReg.BackColor = System.Drawing.SystemColors.Info;
+            this.lbReg.Location = new System.Drawing.Point(302, 35);
+            this.lbReg.Name = "lbReg";
+            this.lbReg.Size = new System.Drawing.Size(104, 148);
+            this.lbReg.TabIndex = 3;
+            this.lbReg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -558,106 +590,6 @@
             this.label17.Size = new System.Drawing.Size(73, 16);
             this.label17.TabIndex = 0;
             this.label17.Text = "ĐĂNG KÝ";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(19, 40);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 15);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Username";
-            // 
-            // txtPassreg
-            // 
-            this.txtPassreg.Location = new System.Drawing.Point(96, 67);
-            this.txtPassreg.Name = "txtPassreg";
-            this.txtPassreg.Size = new System.Drawing.Size(196, 20);
-            this.txtPassreg.TabIndex = 1;
-            this.txtPassreg.Text = "thanhquang";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(19, 68);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(61, 15);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Password";
-            // 
-            // txtHolotreg
-            // 
-            this.txtHolotreg.Location = new System.Drawing.Point(96, 95);
-            this.txtHolotreg.Name = "txtHolotreg";
-            this.txtHolotreg.Size = new System.Drawing.Size(196, 20);
-            this.txtHolotreg.TabIndex = 1;
-            this.txtHolotreg.Text = "Nguyễn Thanh";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(19, 96);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(77, 15);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Họ và chữ lót";
-            // 
-            // txtTenreg
-            // 
-            this.txtTenreg.Location = new System.Drawing.Point(96, 126);
-            this.txtTenreg.Name = "txtTenreg";
-            this.txtTenreg.Size = new System.Drawing.Size(196, 20);
-            this.txtTenreg.TabIndex = 1;
-            this.txtTenreg.Text = "Quang";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(19, 127);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(28, 15);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Tên";
-            // 
-            // txtSdtreg
-            // 
-            this.txtSdtreg.Location = new System.Drawing.Point(96, 152);
-            this.txtSdtreg.Name = "txtSdtreg";
-            this.txtSdtreg.Size = new System.Drawing.Size(196, 20);
-            this.txtSdtreg.TabIndex = 1;
-            this.txtSdtreg.Text = "0338632598";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(19, 153);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(31, 15);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "SĐT";
-            // 
-            // txtGioitinhreg
-            // 
-            this.txtGioitinhreg.Location = new System.Drawing.Point(96, 178);
-            this.txtGioitinhreg.Name = "txtGioitinhreg";
-            this.txtGioitinhreg.Size = new System.Drawing.Size(196, 20);
-            this.txtGioitinhreg.TabIndex = 1;
-            this.txtGioitinhreg.Text = "Nam";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(19, 179);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(52, 15);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Giới tính";
             // 
             // label24
             // 
@@ -669,30 +601,6 @@
             this.label24.TabIndex = 0;
             this.label24.Text = "Ngày sinh";
             // 
-            // txtNamreg
-            // 
-            this.txtNamreg.Location = new System.Drawing.Point(96, 202);
-            this.txtNamreg.Name = "txtNamreg";
-            this.txtNamreg.Size = new System.Drawing.Size(105, 20);
-            this.txtNamreg.TabIndex = 1;
-            this.txtNamreg.Text = "1998";
-            // 
-            // txtThangreg
-            // 
-            this.txtThangreg.Location = new System.Drawing.Point(227, 203);
-            this.txtThangreg.Name = "txtThangreg";
-            this.txtThangreg.Size = new System.Drawing.Size(57, 20);
-            this.txtThangreg.TabIndex = 1;
-            this.txtThangreg.Text = "10";
-            // 
-            // txtNgayreg
-            // 
-            this.txtNgayreg.Location = new System.Drawing.Point(305, 203);
-            this.txtNgayreg.Name = "txtNgayreg";
-            this.txtNgayreg.Size = new System.Drawing.Size(57, 20);
-            this.txtNgayreg.TabIndex = 1;
-            this.txtNgayreg.Text = "03";
-            // 
             // btnReg
             // 
             this.btnReg.Location = new System.Drawing.Point(173, 236);
@@ -703,22 +611,139 @@
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
             // 
-            // lbReg
+            // label23
             // 
-            this.lbReg.BackColor = System.Drawing.SystemColors.Info;
-            this.lbReg.Location = new System.Drawing.Point(302, 35);
-            this.lbReg.Name = "lbReg";
-            this.lbReg.Size = new System.Drawing.Size(104, 148);
-            this.lbReg.TabIndex = 3;
-            this.lbReg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(19, 179);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(52, 15);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Giới tính";
             // 
-            // txtHolot
+            // label22
             // 
-            this.txtHolot.Location = new System.Drawing.Point(105, 36);
-            this.txtHolot.Name = "txtHolot";
-            this.txtHolot.Size = new System.Drawing.Size(196, 20);
-            this.txtHolot.TabIndex = 1;
-            this.txtHolot.Text = "Nguyễn Thanh";
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(19, 153);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(31, 15);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "SĐT";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(19, 127);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(28, 15);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Tên";
+            // 
+            // txtGioitinhreg
+            // 
+            this.txtGioitinhreg.Location = new System.Drawing.Point(96, 178);
+            this.txtGioitinhreg.Name = "txtGioitinhreg";
+            this.txtGioitinhreg.Size = new System.Drawing.Size(196, 20);
+            this.txtGioitinhreg.TabIndex = 1;
+            this.txtGioitinhreg.Text = "Nam";
+            // 
+            // txtSdtreg
+            // 
+            this.txtSdtreg.Location = new System.Drawing.Point(96, 152);
+            this.txtSdtreg.Name = "txtSdtreg";
+            this.txtSdtreg.Size = new System.Drawing.Size(196, 20);
+            this.txtSdtreg.TabIndex = 1;
+            this.txtSdtreg.Text = "0338632598";
+            // 
+            // txtTenreg
+            // 
+            this.txtTenreg.Location = new System.Drawing.Point(96, 126);
+            this.txtTenreg.Name = "txtTenreg";
+            this.txtTenreg.Size = new System.Drawing.Size(196, 20);
+            this.txtTenreg.TabIndex = 1;
+            this.txtTenreg.Text = "Quang";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(19, 96);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(77, 15);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Họ và chữ lót";
+            // 
+            // txtNgayreg
+            // 
+            this.txtNgayreg.Location = new System.Drawing.Point(305, 203);
+            this.txtNgayreg.Name = "txtNgayreg";
+            this.txtNgayreg.Size = new System.Drawing.Size(57, 20);
+            this.txtNgayreg.TabIndex = 1;
+            this.txtNgayreg.Text = "03";
+            // 
+            // txtHolotreg
+            // 
+            this.txtHolotreg.Location = new System.Drawing.Point(96, 95);
+            this.txtHolotreg.Name = "txtHolotreg";
+            this.txtHolotreg.Size = new System.Drawing.Size(196, 20);
+            this.txtHolotreg.TabIndex = 1;
+            this.txtHolotreg.Text = "Nguyễn Thanh";
+            // 
+            // txtThangreg
+            // 
+            this.txtThangreg.Location = new System.Drawing.Point(227, 203);
+            this.txtThangreg.Name = "txtThangreg";
+            this.txtThangreg.Size = new System.Drawing.Size(57, 20);
+            this.txtThangreg.TabIndex = 1;
+            this.txtThangreg.Text = "10";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(19, 68);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(61, 15);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Password";
+            // 
+            // txtPassreg
+            // 
+            this.txtPassreg.Location = new System.Drawing.Point(96, 67);
+            this.txtPassreg.Name = "txtPassreg";
+            this.txtPassreg.Size = new System.Drawing.Size(196, 20);
+            this.txtPassreg.TabIndex = 1;
+            this.txtPassreg.Text = "thanhquang";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(19, 40);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 15);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Username";
+            // 
+            // txtNamreg
+            // 
+            this.txtNamreg.Location = new System.Drawing.Point(96, 202);
+            this.txtNamreg.Name = "txtNamreg";
+            this.txtNamreg.Size = new System.Drawing.Size(105, 20);
+            this.txtNamreg.TabIndex = 1;
+            this.txtNamreg.Text = "1998";
+            // 
+            // btnCapnhatbh
+            // 
+            this.btnCapnhatbh.Location = new System.Drawing.Point(224, 235);
+            this.btnCapnhatbh.Name = "btnCapnhatbh";
+            this.btnCapnhatbh.Size = new System.Drawing.Size(75, 23);
+            this.btnCapnhatbh.TabIndex = 2;
+            this.btnCapnhatbh.Text = "Cập nhật";
+            this.btnCapnhatbh.UseVisualStyleBackColor = true;
+            this.btnCapnhatbh.Click += new System.EventHandler(this.btnCapnhatbh_Click);
             // 
             // Form1
             // 
@@ -732,6 +757,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -808,6 +834,8 @@
         private System.Windows.Forms.TextBox txtPassreg;
         private System.Windows.Forms.TextBox txtNamreg;
         private System.Windows.Forms.TextBox txtHolot;
+        private System.Windows.Forms.Button btnDeletebh;
+        private System.Windows.Forms.Button btnCapnhatbh;
     }
 }
 
