@@ -8,24 +8,23 @@ echo '<center><img src="member.gif" width = 120px height = 120px></center>';
 if($thonline == 0)
 {
 if (isset($_GET['null']))
-{ echo'<font color="red">Không được để trống</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Không được để trống</div></font><br>';}
 if (isset($_GET['tenerr']))
-{ echo'<font color="red">Họ tên vượt quá kí tự cho phép</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Họ tên vượt quá kí tự cho phép</div></font><br>';}
 if (isset($_GET['ktdb']))
-{ echo'<font color="red">Username không được chứa ký tự đặc biệt</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Username không được chứa ký tự đặc biệt</div></font><br>';}
 if (isset($_GET['tktt']))
-{ echo'<font color="red">Username đã tồn tại</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Username đã tồn tại</div></font><br>';}
 if (isset($_GET['chieudai']))
-{ echo'<font color="red">Username hoặc Password vượt quá kích thước quy định</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Username hoặc Password vượt quá kích thước quy định</div></font><br>';}
 if (isset($_GET['sdttt']))
-{ echo'<font color="red">Số điện thoại đã tồn tại</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Số điện thoại đã tồn tại</div></font><br>';}
 if (isset($_GET['sdterr']))
-{ echo'<font color="red">Số điện thoại không hợp lệ</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Số điện thoại không hợp lệ</div></font><br>';}
 if (isset($_GET['gioitinherr']))
-{ echo'<font color="red">Giới tính không hợp lệ</font><br>';}
+{ echo'<font color="red"><div id="thongbao">Giới tính không hợp lệ</div></font><br>';}
 if (isset($_GET['ngaysinherr']))
-{ echo'<font color="red">Ngày sinh không hợp lệ</font><br>';}
-
+{ echo'<font color="red"><div id="thongbao">Ngày sinh không hợp lệ</div></font><br>';}
 
 switch($_GET[mod])
 {
@@ -276,7 +275,7 @@ fwrite($myfile, $txt);
 
 fclose($myfile);
 /////////////////////////////
-echo 'Đăng ký thành công, hãy đăng nhập vào ứng dụng để nghe nhạc.<br><a href=index.php>Trang chủ</a>';
+echo '<div id="thongbao">Đăng ký thành công, hãy đăng nhập vào ứng dụng để nghe nhạc.<br><a href=index.php>Trang chủ</a></div>';
 break;
 
 }

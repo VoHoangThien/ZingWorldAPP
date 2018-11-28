@@ -8,28 +8,30 @@ if($thonline == 1)
 {
     echo '<center><img src="qtv.png" width="30%" height="25%"></center>';
     echo '<center>';
+        if (isset($_GET['loginok']))
+        { echo'<font color="red"><div id="thongbao">Đăng nhập thành công</div></font><br>';}
         if (isset($_GET['null']))
-        { echo'<font color="red">Không được để trống</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Không được để trống</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['tenerr']))
-        { echo'<font color="red">Họ tên vượt quá kí tự cho phép</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Họ tên vượt quá kí tự cho phép</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['ktdb']))
-        { echo'<font color="red">Username không được chứa ký tự đặc biệt</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Username không được chứa ký tự đặc biệt</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['tktt']))
-        { echo'<font color="red">Username đã tồn tại</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Username đã tồn tại</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['chieudai']))
-        { echo'<font color="red">Username vượt quá kích thước quy định</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Username vượt quá kích thước quy định</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['sdterr']))
-        { echo'<font color="red">Số điện thoại không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Số điện thoại không hợp lệ</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['gioitinherr']))
-        { echo'<font color="red">Giới tính không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Giới tính không hợp lệ</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['ngaysinherr']))
-        { echo'<font color="red">Ngày sinh không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Ngày sinh không hợp lệ</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['capdoerr']))
-        { echo'<font color="red">Cấp độ không hợp lệ</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Cấp độ không hợp lệ</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['sdttt']))
-        { echo'<font color="red">Số điện thoại đẫ tồn tại</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Số điện thoại đẫ tồn tại</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
         if (isset($_GET['bhcd']))
-        { echo'<font color="red">Chiều dài ký tự vượt quá mức cho phép</font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
+        { echo'<font color="red"><div id="thongbao">Chiều dài ký tự vượt quá mức cho phép</div></font><a href="javascript: history.go(-1)">  Trở lại</a><br>';}
     echo '</center>';
 switch($_GET[mod])
 {
@@ -44,13 +46,24 @@ setcookie('pas', '');
 $thonline == 0;
 session_destroy();
 
-    echo '<b>Thoát thành công</b><br>';
+    echo '<div id="thongbao"><b>Thoát thành công</b></div><br>';
 
 break;
 case 'ds_tv':
     echo '<center><b><font color="#01DF01">Dưới đây là danh sách thành viên có trong hệ thống</font></b></center>';
-    echo '<br><table border="1" width="100%"><tbody><tr><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Mã thành viên</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên nặc danh</font></td><td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Họ và chữ lót</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên</font></td>
-    <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ngày sinh</font></td><td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">SĐT</font></td><td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Giới tính</font></td><td align="center" bgcolor="#D0F5A9" width="25%"><font color="#004800">Cấp độ</font></td></tr></tbody></table>';
+    echo '<div style="overflow-x:auto;">';
+    echo '<br><table border="1">
+    <tbody>
+    <tr>
+    <td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Mã thành viên</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên nặc danh</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Họ và chữ lót</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">Tên</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="20%"><font color="#004800">Ngày sinh</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="10%"><font color="#004800">SĐT</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="5%"><font color="#004800">Giới tính</font></td>
+    <td align="center" bgcolor="#D0F5A9" width="25%"><font color="#004800">Cấp độ</font></td>
+    <td align="center" bgcolor="#D0F5A9"><font color="#004800">Hành động</font></td></tr>';
 $at_page=10;
 $page = (int)$_GET['page'];
 $s=mysql_result(mysql_query("SELECT COUNT(`id`) FROM `users`"),0);
@@ -66,9 +79,20 @@ $avto=mysql_num_rows($req);
 if($avto>=1){
 While($mag = mysql_fetch_array($req)){
 
- echo '<table border="1" background="anhnen.jpg" width="100%"><tbody><tr><td align="center" width="5%"><font color="#004800">'.$mag[id].'</font></td> <td align="center" width="10%"><font color="#004800">'.$mag[usr].'</font></td><td align="center" width="15%"><font color="#004800">'.$mag[holot].'</font></td><td align="center" width="10%"><font color="#004800">'.$mag[ten].'</font></td><td align="center" width="20%"><font color="#004800">'.$mag[ngaysinh].'</font></td><td align="center" width="10%"><font color="#004800">'.$mag[SDT].'</font></td><td align="center" width="5%"><font color="#004800">'.$mag[gioitinh].'</font></td><td align="center" width="15%"><font color="#004800">'.$mag[capdo].'</font></td><td align="center" width="10%"><font color="red"><a href="choosing.php?mod=sua_tv&&maso='.$mag[id].'">[Sửa]</a></font></td></tr></tbody></table>';
+ echo '<tr>
+         <td align="center" width="5%"><font color="#004800">'.$mag[id].'</font></td>
+         <td align="center" width="10%"><font color="#004800">'.$mag[usr].'</font></td>
+         <td align="center" width="15%"><font color="#004800">'.$mag[holot].'</font></td>
+         <td align="center" width="10%"><font color="#004800">'.$mag[ten].'</font></td>
+         <td align="center" width="20%"><font color="#004800">'.$mag[ngaysinh].'</font></td>
+         <td align="center" width="10%"><font color="#004800">'.$mag[SDT].'</font></td>
+         <td align="center" width="5%"><font color="#004800">'.$mag[gioitinh].'</font></td>
+         <td align="center" width="15%"><font color="#004800">'.$mag[capdo].'</font></td>
+         <td align="center" width="10%"><font color="red"><a href="choosing.php?mod=sua_tv&&maso='.$mag[id].'">[Sửa]</a></font></td></tr>';
 
-}}else{
+}
+echo '</tbody></table></div>';
+}else{
 echo'<b>Không có thành viên nào trong danh sách.</b><br/>';}
 }
 echo '<div class="trang">';
@@ -95,29 +119,35 @@ case 'sua_tv':
 $avto1=mysql_num_rows($req1);
 if($avto1<1)
 {
-    echo 'Thành viên không tồn tại.<br>';
+    echo '<div id="thongbao">Thành viên không tồn tại.</div><br>';
 break;
 }
 else
 {
-    echo '<b><center>Hãy sửa lại các thông tin theo mong muốn</center>
-    <br>Mã số : '.$id.'
-    <br>Username : '.$b[usr].'</b><br>';
+    echo '<b><center>Hãy sửa lại các thông tin theo mong muốn<hr>
+    <br>Mã số :</b> '.$id.'
+    <br><b>Username :</b> '.$b[usr].'
+    <br><b>Họ và chữ lót :</b> '.$b[holot].'
+    <br><b>Tên :</b> '.$b[ten].'
+    <br><b>Ngày sinh :</b> '.$b[ngaysinh].'
+    <br><b>SĐT :</b> '.$b[SDT].'
+    <br><b>Giới tính :</b> '.$b[gioitinh].'
+    <br><b>Cấp độ :</b> '.$b[capdo].'</center><br>';
     echo '<form action="choosing.php?mod=sua_tvxong&id='.$id.'" method="post">';
 echo"Họ và chữ lót: (không quá 20 kí tự)<br/>
-<input class='input' type=\"text\" value=\"$b[holot]\" size=\"50\" name=\"holot\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"holot\"/><br/>
 Tên: (Không quá 10 kí tự)<br/>
-<input class='input' type=\"text\" value=\"$b[ten]\" size=\"50\" name=\"ten\"/><br/>
-Ngày sinh: năm trong khoảng 1920 đến 2013 (dạng YYYY-MM-DD) Hiện tại là $b[ngaysinh]<br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"ten\"/><br/>
+Ngày sinh: năm trong khoảng 1920 đến 2013 (dạng YYYY-MM-DD)<br/>
 <input class='input' type=\"text\" value=\"\" size=\"7\" name=\"nam\"/>
 <input class='input' type=\"text\" value=\"\" size=\"5\" name=\"thang\"/>
 <input class='input' type=\"text\" value=\"\" size=\"5\" name=\"ngay\"/><br/>
 SĐT (trong khoảng 9 đến 11 số)<br/>
-<input class='input' type=\"text\" value=\"$b[SDT]\" size=\"50\" name=\"SDT\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"SDT\"/><br/>
 Giới tính: (Nam hoặc Nữ)<br/>
-<input class='input' type=\"text\" value=\"$b[gioitinh]\" size=\"50\" name=\"gioitinh\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"gioitinh\"/><br/>
 Cấp độ (Thường hoặc Vip)<br/>
-<input class='input' type=\"text\" value=\"$b[capdo]\" size=\"50\" name=\"capdo\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"capdo\"/><br/>
 <input class=\"button\" type=\"submit\" value=\"Sửa\" /></form>";
 }
 break;
@@ -130,7 +160,7 @@ $sdt2=mysql_num_rows($sdt1);
 $avto1=mysql_num_rows($req1);
             if($avto1<1)
              {
-                echo 'Thành viên không tồn tại.<br>';
+                echo '<div id="thongbao">Thành viên không tồn tại.</div><br>';
               }
             else
                 {
@@ -166,7 +196,7 @@ if($_POST[thang] == 2 and $_POST[ngay]>29)
             `gioitinh` = '$_POST[gioitinh]',
             `capdo` = '$_POST[capdo]'
             WHERE `id`='$id' LIMIT 1") or die (mysql_error());
-            echo '<b><font color=green>Sửa thành công</font></b><br/>';
+            echo '<div id="thongbao"><b><font color=green>Sửa thành công</font></b></div><br/>';
             $myfile = fopen("demo/user.txt", "w");
 $req = mysql_query("SELECT * FROM `users` ORDER BY `id` ASC");
 $avto=mysql_num_rows($req);
@@ -347,21 +377,13 @@ fwrite($myfile, $txt);
 
 fclose($myfile);
                 }
-break;
-case 'xoa_tv':
-$id=abs(intval($_GET['maso']));
-    $req1 = mysql_query("SELECT * FROM `users` WHERE `id`='$id'");
-$avto1=mysql_num_rows($req1);
-if($avto1>=1){
-    echo '<b>Xóa thành công</b><br>';
-    mysql_query("DELETE FROM `users` WHERE `id`='$id'");
-}else
-echo '<b>Thành viên không tồn tại</b><br>';
+
 break;
 case 'ds_bh':
     echo '<center><b><font color="#01DF01">Dưới đây là danh sách bài hát có trong hệ thống</font></b></center>';
+    echo '<div style="overflow-x:auto;">';
     echo '<br>
-    <table border="1" width="100%">
+    <table border="1">
     <tbody>
     <tr>
             <td align="center" bgcolor="#D0F5A9" width="15%"><font color="#004800">Mã số</font></td>
@@ -400,6 +422,7 @@ echo '
 
 }
 echo '</tbody></table>';
+echo '</div>';
 }else{
 echo'<b>Không có bài hát nào trong danh sách.</b><br/>';}
 }
@@ -450,7 +473,7 @@ case 'them':
             `casi` = '$_POST[casi]',
             `mp3` = '$_POST[duongdan]',
             `anh` = '$_POST[anh]'") or die (mysql_error());
-            echo '<b><font color=green>Thêm thành công</font></b><br/>';
+            echo '<div id="thongbao"><b><font color=green>Thêm thành công</font></b></div><br/>';
         }
             
 break;
@@ -461,24 +484,29 @@ case 'sua_bh':
 $avto1=mysql_num_rows($req1);
 if($avto1<1)
 {
-    echo 'Bài hát không tồn tại.<br>';
+    echo '<div id="thongbao">Bài hát không tồn tại.</div><br>';
 break;
 }
 else
 {
-    echo '<b><center>Hãy sửa lại các thông tin theo mong muốn</center>
-    <br>Mã số : '.$id.'</b><br>';
+    echo '<b><center>Hãy sửa lại các thông tin theo mong muốn<hr>
+    <br>Mã số :</b> '.$id.'
+    <br><b>Tên bài hát :</b> '.$b[TenBH].'
+    <br><b>Ca sĩ :</b> '.$b[casi].'
+    <br><b>Thể loại :</b> '.$b[theloai].'
+    <br><b>Liên kết nguồn :</b> '.$b[mp3].'
+    <br><b>Ảnh :</b> '.$b[anh].'</b></center><br>';
     echo '<form action="choosing.php?mod=sua&id='.$id.'" method="post">';
 echo"Tên bài hát: (Không quá 70 ký tự)<br/>
-<input class='input' type=\"text\" value=\"$b[TenBH]\" size=\"50\" name=\"ten\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"ten\"/><br/>
 Ca sĩ: (không quá 40 ký tự)<br/>
-<input class='input' type=\"text\" value=\"$b[casi]\" size=\"50\" name=\"casi\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"casi\"/><br/>
 Thể loại: (không quá 20 ký tự)<br/>
-<input class='input' type=\"text\" value=\"$b[theloai]\" size=\"50\" name=\"theloai\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"50\" name=\"theloai\"/><br/>
 Liên kết nguồn:<br/>
-<input class='input' type=\"text\" value=\"$b[mp3]\" size=\"60\" name=\"duongdan\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"60\" name=\"duongdan\"/><br/>
 Ảnh:<br/>
-<input class='input' type=\"text\" value=\"$b[anh]\" size=\"60\" name=\"anh\"/><br/>
+<input class='input' type=\"text\" value=\"\" size=\"60\" name=\"anh\"/><br/>
 <input class=\"button\" type=\"submit\" value=\"Sửa\" /></form>";
 }
 break;
@@ -490,7 +518,7 @@ if(($_POST[ten]) == '' || ($_POST[casi]) == '' || ($_POST[theloai]) == '' || ($_
 $avto1=mysql_num_rows($req1);
             if($avto1<1)
              {
-                echo 'Bài hát không tồn tại.<br>';
+                echo '<div id="thongbao">Bài hát không tồn tại.</div><br>';
             }
             else
                 {
@@ -505,7 +533,7 @@ $avto1=mysql_num_rows($req1);
             `mp3` = '$_POST[duongdan]',
             `anh` = '$_POST[anh]'
             WHERE `idBH`='$id' LIMIT 1") or die (mysql_error());
-            echo '<b><font color=green>Sửa thành công</font></b><br/>';
+            echo '<div id="thongbao"><b><font color=green>Sửa thành công</font></b></div><br/>';
                 }
     
 break;
@@ -514,10 +542,10 @@ case 'xoa_bh':
     $req1 = mysql_query("SELECT * FROM `baihat` WHERE `idBH`='$id'");
 $avto1=mysql_num_rows($req1);
 if($avto1>=1){
-    echo '<b>Xóa thành công</b><br>';
+    echo '<div id="thongbao"><b>Xóa thành công</b></div><br>';
     mysql_query("DELETE FROM `baihat` WHERE `idBH`='$id'");
 }else
-echo '<b>Bài hát không tồn tại</b><br>';
+echo '<div id="thongbao"><b>Bài hát không tồn tại</b></div><br>';
     
     
 break;
@@ -625,7 +653,7 @@ fwrite($myfile, $txt);
 
 fclose($myfile);
 
-echo '<b>Cập nhật thành công</b><br>';
+echo '<div id="thongbao"><b>Cập nhật thành công</b></div><br>';
 
 break;
 }
