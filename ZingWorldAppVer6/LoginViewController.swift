@@ -10,13 +10,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var btnLoginOut: UIButton!
     @IBOutlet weak var txtUser: UITextField!
-    
     @IBOutlet weak var txtPass: UITextField!
     var mem:Member!
     //var nameReference:UserDefaults!
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnLoginOut.layer.cornerRadius = 5
+        btnLoginOut.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,6 +26,7 @@ class PlayViewController: UIViewController {
     var row:Int!
     var arrListSong:[String]!
     var inDexReference:UserDefaults!
+    var inDexMoreReference:UserDefaults!
     var player:AVPlayer!
     var timer:Timer!
     var corner:Int = 0 // góc xuay
@@ -42,8 +43,21 @@ class PlayViewController: UIViewController {
         
         
         inDexReference = UserDefaults()
-        row = inDexReference.value(forKey: "number") as! Int
-        getSong(row)
+        inDexMoreReference = UserDefaults()
+        
+//        row = inDexReference.value(forKey: "number") as! Int
+//        getSong(row)
+        if inDexReference.value(forKey: "number") != nil && inDexMoreReference.value(forKey: "numberMore") == nil
+        {
+            row = inDexReference.value(forKey: "number") as! Int
+            getSong(row)
+        }
+        else
+        {
+            row = inDexMoreReference.value(forKey: "numberMore") as! Int
+            getSong(row)
+        }
+        
         
         // Do any additional setup after loading the view.
     }

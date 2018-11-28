@@ -16,11 +16,16 @@
 		A800A58B2177590F005BC1E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800A58A2177590F005BC1E5 /* HomeViewController.swift */; };
 		A8097FF821A2F7F20093C01A /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8097FF721A2F7F20093C01A /* PlayViewController.swift */; };
 		A8097FFB21A2FD010093C01A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8097FFA21A2FD000093C01A /* AVFoundation.framework */; };
+		A84A941621AAE7A600016460 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A941521AAE7A600016460 /* HeaderTableViewCell.swift */; };
+		A853E3A421AC291A00F1B8C0 /* MoreSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A853E3A321AC291A00F1B8C0 /* MoreSongViewController.swift */; };
+		A853E3A621AC2B7600F1B8C0 /* MoreSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A853E3A521AC2B7600F1B8C0 /* MoreSongTableViewCell.swift */; };
+		A853E3A821AC431500F1B8C0 /* MVPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A853E3A721AC431500F1B8C0 /* MVPlayViewController.swift */; };
 		A889780121A590B70006D472 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780021A590B70006D472 /* LoginTest.swift */; };
 		A889780721A594490006D472 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780621A594490006D472 /* Member.swift */; };
 		A889780B21A5A21E0006D472 /* HomeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780A21A5A21E0006D472 /* HomeTest.swift */; };
 		A889780D21A5A3320006D472 /* PlaySongTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A889780C21A5A3320006D472 /* PlaySongTest.swift */; };
 		A8CDF13B21A5040F0090BB6E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8CDF13A21A5040F0090BB6E /* RegisterViewController.swift */; };
+		A8D8FDC221ABDAD400BF0012 /* MVCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D8FDC121ABDAD400BF0012 /* MVCollectionViewCell.swift */; };
 		A8E62B3E21A4641B008290F2 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E62B3D21A4641B008290F2 /* MoreViewController.swift */; };
 		A8E62B4021A46EA2008290F2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E62B3F21A46EA2008290F2 /* HomeTableViewCell.swift */; };
 		A8E62B4A21A47CEF008290F2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E62B4921A47CEF008290F2 /* LoginViewController.swift */; };
@@ -51,11 +56,16 @@
 		A800A58A2177590F005BC1E5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A8097FF721A2F7F20093C01A /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		A8097FFA21A2FD000093C01A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A84A941521AAE7A600016460 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		A853E3A321AC291A00F1B8C0 /* MoreSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreSongViewController.swift; sourceTree = "<group>"; };
+		A853E3A521AC2B7600F1B8C0 /* MoreSongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreSongTableViewCell.swift; sourceTree = "<group>"; };
+		A853E3A721AC431500F1B8C0 /* MVPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPlayViewController.swift; sourceTree = "<group>"; };
 		A889780021A590B70006D472 /* LoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		A889780621A594490006D472 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		A889780A21A5A21E0006D472 /* HomeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTest.swift; sourceTree = "<group>"; };
 		A889780C21A5A3320006D472 /* PlaySongTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySongTest.swift; sourceTree = "<group>"; };
 		A8CDF13A21A5040F0090BB6E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A8D8FDC121ABDAD400BF0012 /* MVCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8E62B3D21A4641B008290F2 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		A8E62B3F21A46EA2008290F2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		A8E62B4921A47CEF008290F2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +127,11 @@
 				A8CDF13A21A5040F0090BB6E /* RegisterViewController.swift */,
 				A8F7108621A554C900A93E60 /* SelfViewController.swift */,
 				A889780621A594490006D472 /* Member.swift */,
+				A84A941521AAE7A600016460 /* HeaderTableViewCell.swift */,
+				A8D8FDC121ABDAD400BF0012 /* MVCollectionViewCell.swift */,
+				A853E3A321AC291A00F1B8C0 /* MoreSongViewController.swift */,
+				A853E3A521AC2B7600F1B8C0 /* MoreSongTableViewCell.swift */,
+				A853E3A721AC431500F1B8C0 /* MVPlayViewController.swift */,
 			);
 			path = ZingWorldAppVer6;
 			sourceTree = "<group>";
@@ -244,12 +259,17 @@
 			files = (
 				A8E62B4A21A47CEF008290F2 /* LoginViewController.swift in Sources */,
 				A8E62B4021A46EA2008290F2 /* HomeTableViewCell.swift in Sources */,
+				A853E3A421AC291A00F1B8C0 /* MoreSongViewController.swift in Sources */,
 				A8E62B3E21A4641B008290F2 /* MoreViewController.swift in Sources */,
 				A8CDF13B21A5040F0090BB6E /* RegisterViewController.swift in Sources */,
 				A8097FF821A2F7F20093C01A /* PlayViewController.swift in Sources */,
+				A84A941621AAE7A600016460 /* HeaderTableViewCell.swift in Sources */,
 				A800A567217752BC005BC1E5 /* ViewController.swift in Sources */,
+				A8D8FDC221ABDAD400BF0012 /* MVCollectionViewCell.swift in Sources */,
+				A853E3A621AC2B7600F1B8C0 /* MoreSongTableViewCell.swift in Sources */,
 				A800A565217752BC005BC1E5 /* AppDelegate.swift in Sources */,
 				A8F7108721A554C900A93E60 /* SelfViewController.swift in Sources */,
+				A853E3A821AC431500F1B8C0 /* MVPlayViewController.swift in Sources */,
 				A800A58B2177590F005BC1E5 /* HomeViewController.swift in Sources */,
 				A889780721A594490006D472 /* Member.swift in Sources */,
 			);

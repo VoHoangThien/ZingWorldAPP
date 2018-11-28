@@ -1,19 +1,15 @@
 //
-//  HomeTableViewCell.swift
+//  HeaderTableViewCell.swift
 //  ZingWorldAppVer6
 //
-//  Created by Thien Vo on 11/20/18.
+//  Created by Thien Vo on 11/25/18.
 //  Copyright © 2018 Thien Vo. All rights reserved.
 //
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
+class HeaderTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblNumber: UILabel!
-    @IBOutlet weak var imgSongCell: UIImageView!
-    @IBOutlet weak var lblSong: UILabel!
-    @IBOutlet weak var lblSinger: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
